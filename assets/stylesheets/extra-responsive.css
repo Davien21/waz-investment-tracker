@@ -131,6 +131,9 @@
 .no-text-shadow {
 	text-shadow: none;
 }
+.upper-case {
+	text-transform: uppercase;
+}
 .arial {
 	font-family: Arial;
 	
