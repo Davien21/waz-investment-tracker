@@ -1,5 +1,5 @@
 <?php
-	require 'backend.php';
+	require './backends/backend.php';
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -11,7 +11,7 @@
 	    <link rel="icon" type="image/jpg" href="./assets/imgs/logo1.jpg"/>
 	    <link rel="stylesheet" href="./assets/stylesheets/libraries/bootstrap.css">
 	    <link rel="stylesheet" href="./assets/stylesheets/libraries/normalize.css">
-	    <!-- <link rel="stylesheet" href="./assets/stylesheets/reset.css"> -->
+	    <link rel="stylesheet" href="./assets/stylesheets/reset.css">
 	    <link rel="stylesheet" href="./assets/stylesheets/extra-responsive.css">
 	    <link rel="stylesheet" href="./assets/stylesheets/style.css"> 
 	</head>
@@ -19,32 +19,61 @@
 	    <div id="wrapper">
 	        <!-- Main Section -->
 	        <main id="main">
-	        	<section id="input-section">
+	        	<h2 class="text-center text-white my-5 upper-case">Wazobia Investment tracker</h2>
+	        	<section id="what-to-do">
 	        		<div class="container-fluid">
 	        			<div class="row">
-	        				<form action="backend.php" method="post">
+	        				<div class="mx-auto col-sm-8 col-md-6 col-lg-4 col-xl-3 bg-white pt-4 pb-5 px-4 rounded activity-box">
+	        					<h2 class="text-center py-3">Welcome</h2>
+	        					<h4 class="text-center pb-2	">Pick an option:</h4>
 	        					<div>
-	        						<label>Initial Capital</label>
-	        						<input type="text" name="">
+	        						<button id="sim-btn" class="btn option-btn btn-default-dark btn-block">Simulate Track</button>
+	        						<button id="track-btn" class="btn option-btn btn-default-green btn-block">Track Progress</button>
+	        						<!-- <button class="btn option-btn ">Track Progress</button> -->
 	        					</div>
-	        					<div>
-	        						<label>Investment Number</label>
-	        						<input type="text" name="">
-	        					</div>
-	        					<div>
-	        						<label>Increment</label>
-	        						<input type="text" name="">
-	        					</div>
-	        					<div>
-	        						<label>Initial Capital</label>
-	        						<input type="text" name="">
-	        					</div>
-	        				</form>
+	        				</div>
+	        			</div>
+	        		</div>
+	        	</section>
+	        	<section id="input-section" class="d-none">
+	        		<div class="container-fluid">
+	        			<div class="row">
+	        				<div class="mx-auto bg-white rounded activity-box">
+	        					<form id="sim-parameters" action="backend.php" method="post" class="form-group p-4 p-sm-5 p-md-5">
+	        					<h4 class="">Fill this Form:</h4>
+	        					<hr>
+		        					<div class="flex mb-2">
+		        						<label class="pl-0 col-8">Starting Capital</label>
+		        						<input class="col-4 form-control" type="text" name="capital">
+		        					</div>
+		        					<div class="flex mb-2">
+		        						<label class="pl-0 col-8">
+			        						<span class="d-sm-none">Investment No.</span>
+			        						<span class="d-none d-sm-flex">Number of Investments</span> 
+			        					</label>
+		        						<input class="col-4 form-control" type="text" name="number">
+		        					</div>
+		        					<div class="flex mb-2">
+		        						<label class="pl-0 col-8">Incremental Amount</label>
+		        						<input class="col-4 form-control" type="text" name="increment">
+		        					</div>
+		        					<!-- <div class="flex mb-2">
+		        						<label class="pl-0 col-8">Initial Capital</label>
+		        						<input class="col-4 form-control" type="text" name="">
+		        					</div> -->
+		        					<div class="">
+		        						<button class="btn-block btn btn-primary">
+		        							<span>Simulate</span>
+		        							<span class="d-none d-md-inline-flex">Track</span></span></button>
+		        					</div>
+		        				</form>
+	        				</div>
+	        				
 
 	        			</div>
 	        		</div>
 	        	</section>
-	        	<section id="table-section">
+	        	<section id="table-section" class="d-none">
 	        		<div class="container-fluid bg-">
 	        			<div class="row">
 	        				<div class="col-6 mx-auto">
