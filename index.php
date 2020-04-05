@@ -45,8 +45,8 @@
 		        					<h4 class="">Fill this Form:</h4>
 		        					<hr>
 			        					<div class="flex mb-2">
-			        						<label class="pl-0 col-8">Starting Capital</label>
-			        						<input class="col-4 form-control" type="text" name="capital">
+			        						<label class="pl-0 col-8">Initial Investment</label>
+			        						<input class="col-4 form-control" type="text" name="investment">
 			        					</div>
 			        					<div class="flex mb-2">
 			        						<label class="pl-0 col-8">
@@ -59,10 +59,10 @@
 			        						<label class="pl-0 col-8">Incremental Amount</label>
 			        						<input class="col-4 form-control" type="text" name="increment">
 			        					</div>
-			        					<!-- <div class="flex mb-2">
-			        						<label class="pl-0 col-8">Initial Capital</label>
-			        						<input class="col-4 form-control" type="text" name="">
-			        					</div> -->
+			        					<div class="flex mb-2">
+			        						<label class="pl-0 col-8">Starting Capital</label>
+			        						<input class="col-4 form-control" type="text" name="capital">
+			        					</div>
 			        					<div class="">
 			        						<button class="btn-block btn btn-primary">
 			        							<span>Simulate</span>
@@ -78,23 +78,22 @@
 		        	<section id="table-section" class="d-none">
 		        		<div class="container-fluid bg-">
 		        			<div class="row">
-		        				<div class="col-7 mx-auto">
+		        				<div class="col-11 col-md-9 mx-auto">
 		        					<table id="sim-table" class="text-center table table-hover table-striped ">
 		        						<caption class="text-center">The future...</caption>
 					        			<thead>
 					        				<tr>
-					        					<th scope="col" class="col-2"><?=$col_head_1?></th>
+					        					<th scope="col" class="col-auto"><?=$col_head_1?></th>
 					        					<th scope="col" class="col-2"><?=$col_head_2?></th>
 					        					<th scope="col" class="col-2"><?=$col_head_3?></th>
 					        					<th scope="col" class="col-2"><?=$col_head_4?></th>
 					        					<th scope="col" class="col-2"><?=$col_head_5?></th>
 					        					<th scope="col" class="col-2"><?=$col_head_6?></th>
+					        					<th scope="col" class="col-2"><?=$col_head_7?></th>
 					        				</tr>
 					        			</thead>
 					        			<tbody class="bg-white">
-					        				<?php
-
-					        				?>
+					        				
 					        			</tbody>
 					        		</table>
 		        				</div>

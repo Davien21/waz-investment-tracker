@@ -39,8 +39,8 @@
 				$number = sanitizeInputs($_POST['number']);
 				$increment = sanitizeInputs($_POST['increment']);
 				$capital = sanitizeInputs($_POST['capital']);
-			
-				print_r($investment_simulation_data($number,$investment,$increment));
+				echo json_encode($investment_simulation_data($number,$investment,$increment));
+				// print_r();
 
 			}
 		}

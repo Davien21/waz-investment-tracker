@@ -8,13 +8,18 @@ $(document).ready(function(){
 	})
 	$('#sim-parameters').submit(function(e){
 		e.preventDefault();
-		let all_inputs = $('#sim-parameters').serialize()+'&request=simulation';
+		let all_inputs = $('#sim-parameters').serialize()+'&request=simulate';
 	 	$.post("./apis/tracker-api.php",all_inputs, function(data, status){
 	 		// console.log(status);
-	    	// alert("Data: " + data + "\nStatus: " + status);
+	    	alert("Data: " + data + "\nStatus: " + status);
+	    	$.each(data,function(i,value){
+	    		console.log(value);
+	    	})
   		});
-  		$('#table-section').removeClass('d-none')
-  		$('#input-section').addClass('d-none')
+  		$('#input-section').addClass('d-none');
+  		$('#table-section tbody').append
+  		$('#table-section').removeClass('d-none');
+
 	})
 	
 }); 
