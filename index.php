@@ -41,29 +41,35 @@
 		        		<div class="container-fluid">
 		        			<div class="row mt-5">
 		        				<div class="mx-auto bg-white rounded activity-box">
-		        					<form id="sim-parameters" action="backend.php" method="post" class="form-group p-4 p-sm-5 p-md-5">
-		        					<h4 class="">Fill this Form:</h4>
-		        					<hr>
-			        					<div class="flex mb-2">
+		        					<div class="relative navigator mt-3 pl-4 pl-sm-5 back-btn">
+	        							<button class="btn btn-danger  ">Back</button>
+	        							<!-- <img src="./assets/imgs/reply.svg" class="svgs "> -->
+	        							<!-- <img src="./assets/imgs/right-arrow-2.svg" class="svgs "> -->
+	        						</div>
+		        					<form id="sim-parameters" action="backend.php" method="post" class="relative p-4 p-sm-5 p-md-5">
+		        						
+			        					<h4 class="">Fill this Form:</h4>
+			        					<hr>
+			        					<div class="form-group flex mb-2">
 			        						<label class="pl-0 col-8">Initial Investment</label>
 			        						<input class="col-4 form-control" type="text" name="investment">
 			        					</div>
-			        					<div class="flex mb-2">
+			        					<div class="form-group flex mb-2">
 			        						<label class="pl-0 col-8">
 				        						<span class="d-sm-none">Investment No.</span>
 				        						<span class="d-none d-sm-flex">Number of Investments</span> 
 				        					</label>
 			        						<input class="col-4 form-control" type="text" name="number">
 			        					</div>
-			        					<div class="flex mb-2">
+			        					<div class="form-group flex mb-2">
 			        						<label class="pl-0 col-8">Incremental Amount</label>
 			        						<input class="col-4 form-control" type="text" name="increment">
 			        					</div>
-			        					<div class="flex mb-2">
+			        					<div class="form-group flex mb-2">
 			        						<label class="pl-0 col-8">Starting Capital</label>
 			        						<input class="col-4 form-control" type="text" name="capital">
 			        					</div>
-			        					<div class="">
+			        					<div class="form-group ">
 			        						<button class="btn-block btn btn-primary">
 			        							<span>Simulate</span>
 			        							<span class="d-none d-md-inline-flex">Track</span></span></button>
@@ -76,12 +82,17 @@
 		        		</div>
 		        	</section>
 		        	<section id="table-section" class="d-none">
-		        		<div class="container-fluid bg-">
+		        		<div class="container-fluid ">
 		        			<div class="row">
 		        				<div class="col-11 col-md-9 mx-auto">
 		        					<table id="sim-table" class="text-center table table-hover table-striped ">
-		        						<caption class="text-center">The future...</caption>
-					        			<thead>
+		        						<div class="relative navigator back-btn">
+		        							<button class="btn btn-danger  ">Back</button>
+		        							<!-- <img src="./assets/imgs/reply.svg" class="svgs "> -->
+		        							<!-- <img src="./assets/imgs/right-arrow-2.svg" class="svgs "> -->
+		        						</div>
+		        						<caption class="text-md-center">Investment Simulator</caption>
+					        			<thead class="">
 					        				<tr>
 					        					<th scope="col" class="col-auto"><?=$col_head_1?></th>
 					        					<th scope="col" class="col-2"><?=$col_head_2?></th>
