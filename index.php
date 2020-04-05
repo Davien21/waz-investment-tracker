@@ -37,11 +37,32 @@
 		        			</div>
 		        		</div>
 		        	</section>
-		        	<section id="input-section" class="d-none">
+		        	<section id="manner-of-input" class="d-none">
+		        		<div class="container-fluid">
+		        			<div class="row mt-5">
+
+		        				<div class="mx-auto  bg-white pt-3 pb-5 px-4 rounded activity-box">
+		        					<div class="navigator back-btn">
+	        							<button class="btn btn-danger  ">Back</button>
+	        							<!-- <img src="./assets/imgs/reply.svg" class="svgs "> -->
+	        							<!-- <img src="./assets/imgs/right-arrow-2.svg" class="svgs "> -->
+	        						</div>
+		        					<h2 class="text-cente pt-4">Manner of Input</h2>
+		        					<h4 class="text-center pb-3	">Choose an input method:</h4>
+		        					<div>
+		        						<button id="manual-sim-btn" class="btn option-btn btn-default-dark btn-block">Manual Input</button>
+		        						<button id="auto-sim-btn" class="btn option-btn btn-default-green btn-block">Automatic</button>
+		        						<!-- <button class="btn option-btn ">Track Progress</button> -->
+		        					</div>
+		        				</div>
+		        			</div>
+		        		</div>
+		        	</section>
+		        	<section id="auto-simulation" class="d-none">
 		        		<div class="container-fluid">
 		        			<div class="row mt-5">
 		        				<div class="mx-auto bg-white rounded activity-box">
-		        					<div class="relative navigator mt-3 pl-4 pl-sm-5 back-btn">
+		        					<div class="navigator mt-3 pl-4 pl-sm-5 back-btn">
 	        							<button class="btn btn-danger  ">Back</button>
 	        							<!-- <img src="./assets/imgs/reply.svg" class="svgs "> -->
 	        							<!-- <img src="./assets/imgs/right-arrow-2.svg" class="svgs "> -->
@@ -86,7 +107,7 @@
 		        			<div class="row">
 		        				<div class="col-11 col-md-9 mx-auto">
 		        					<table id="sim-table" class="text-center table table-hover table-striped ">
-		        						<div class="relative navigator back-btn">
+		        						<div class="navigator back-btn">
 		        							<button class="btn btn-danger  ">Back</button>
 		        							<!-- <img src="./assets/imgs/reply.svg" class="svgs "> -->
 		        							<!-- <img src="./assets/imgs/right-arrow-2.svg" class="svgs "> -->

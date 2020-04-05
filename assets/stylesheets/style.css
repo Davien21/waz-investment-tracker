@@ -25,9 +25,12 @@ body {
 	/*-moz-font-smoothing: antialiased;*/
 }
 
+.navigator {
+	position: relative;
+}
 .navigator :nth-child(1) {
 	position: absolute;
-	top: -30px;
+	top: -2rem;
 }
 
 .svgs {

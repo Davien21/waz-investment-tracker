@@ -1,17 +1,27 @@
 $(document).ready(function(){
+	/* ===== Simulator section ====== */
+
 	$('#sim-btn').click(function(){
   		$('#what-to-do').addClass('d-none');
-  		$('#input-section').removeClass('d-none');
+  		$('#manner-of-input').removeClass('d-none');
+  		// $('section#auto-simulation').removeClass('d-none');
 	});
-	$('#track-btn').click(function(){
-	})
-	$('#input-section .back-btn').click(function(){
-		$('#what-to-do').removeClass('d-none');
-  		$('#input-section').addClass('d-none');
+	$('#manner-of-input .back-btn').click(function(){
+  		$('#manner-of-input').addClass('d-none');
+  		$('#what-to-do').removeClass('d-none');
+	});
+	$('#auto-sim-btn').click(function(){
+  		$('#manner-of-input').addClass('d-none');
+  		$('section#auto-simulation').removeClass('d-none');
+	});
+	$('section#auto-simulation .back-btn').click(function(){
+  		$('#manner-of-input').removeClass('d-none');
+  		$('section#auto-simulation').addClass('d-none');
 	})
 	$('#table-section .back-btn').click(function(){
 		$('#what-to-do').addClass('d-none');
-  		$('#input-section').removeClass('d-none');
+		$('#table-section').addClass('d-none');
+  		$('section#auto-simulation').removeClass('d-none');
   		$('#table-section tbody').empty();
 	})
 	let table_row =  (data_object) => {
@@ -38,6 +48,10 @@ $(document).ready(function(){
 	    		$('#table-section tbody').append(table_row(i));
 	    	}
   		});
-  		$('#input-section').addClass('d-none');
+  		$('section#auto-simulation').addClass('d-none');
+	})
+	/* ===== Tracking section ====== */
+	$('#track-btn').click(function(){
+
 	})
 }); 
