@@ -47,20 +47,16 @@ $(document).ready(function() {
 	});
 	$('button#submit-sim-values').click(function(e) {
 		e.preventDefault();
-		if ($('main').data('state','auto-sim-table'));
-		let all_inputs = $('#sim-parameters').serializeArray();
-		console.log(all_inputs);
+		let auto_sim_data = $('#sim-parameters').serializeArray();
+		let get_value = (index) => {return  auto_sim_data[i].value};
+		console.log(auto_sim_data);
   		$('section#auto-simulation').addClass('d-none');
 		$('#table-section').removeClass('d-none');
   		$('main').data('state','auto-sim-table');
-	 	// $.post("./apis/tracker-api.php",all_inputs, function(data, status) {
-	  //   	let investment_data = JSON.parse(data);	
-	  		investment_simulation_data(all_inputs,10000,10000);
-	  		
-	    	for (let i of investment_data) {
-	    		$('#table-section tbody').append(table_row(i));
-	    	}
-  	// 	});
+  		console.log(investment_simulation_data(auto_sim_data));
+    	for (let i of investment_simulation_data(auto_sim_data)) {
+    		$('#table-section tbody').append(table_row(i));
+    	}
 	})
 	$('.back-btn').click(function() {
   		goBack();

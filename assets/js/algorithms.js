@@ -1,12 +1,16 @@
 let number_format = (value) => {
 	return value.toLocaleString();
 } 
-data_object
-let investment_simulation_data = (object) => {
+let investment_simulation_data = (input_array) => {
 	let data_array = [];
+
+	let first_investment = Number(input_array[0].value),number = Number(input_array[1].value),
+		increment = Number(input_array[2].value),start_capital = Number(input_array[3].value);
 	let compounded_investment = compounded_yield = compounded_profit = 0;
-	for (let i=0;i<object.number;++i) {
-		let investment = object.investment + (data_object.increment*i);
+	for (let i=0;i<number;++i) {
+		let investment = first_investment + (increment*i);
+		console.log (investment)
+
 		if (i === 0) {
 			current_yield = 0;
 		}else {
@@ -24,4 +28,3 @@ let investment_simulation_data = (object) => {
 	}
 	return data_array;
 }
-console.log(investment_simulation_data(10,10000,10000));
