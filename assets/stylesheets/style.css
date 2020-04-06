@@ -24,7 +24,9 @@ body {
 	/*-webkit-font-smoothing: antialiased;*/
 	/*-moz-font-smoothing: antialiased;*/
 }
-
+.plus-svg {
+	height: 20px;
+}
 .navigator {
 	position: relative;
 }
@@ -93,6 +95,12 @@ section#input-section label{
 	height: 100%;
 	overflow: hidden;
    
+}
+.side-note {
+	padding: 10px 2px;
+	font-size: 1em;
+	font-style: italic;
+	color: #8a97a0;
 }
 
 @media screen and (max-width:399px) {
