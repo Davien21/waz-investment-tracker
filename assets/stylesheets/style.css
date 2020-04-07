@@ -90,6 +90,10 @@ section#input-section label{
 .text-spc-1 {
 	letter-spacing: 1px;
 }
+.week {
+	font-weight: bold;
+	color: #FC5655;
+}
 .wrapper {
 	width: 100%;
 	height: 100%;

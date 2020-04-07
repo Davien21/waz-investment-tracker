@@ -6,7 +6,7 @@ $(document).ready(function() {
 	sim_th(1).text("S/N");sim_th(2).text("Investment");
 	sim_th(3).text("Yield");sim_th(4).text("Profit");
 	sim_th(5).text("C./Investment");sim_th(6).text("C./Yield");
-	sim_th(7).text("C./Profit");
+	sim_th(7).text("C./Profit");sim_th(8).text("Week");
 	/* ===== Simulator section ====== */
 	function goBack() {
 		if ($('main').data('state')==='manner-of-input') {
@@ -25,10 +25,11 @@ $(document).ready(function() {
 		}else if ($('main').data('state')==='auto-sim-table') {
 			$('#table-section').addClass('d-none');
 	  		$('section#auto-simulation').removeClass('d-none');
-	  		$('#table-section tbody').empty();
   			$('main').data('state','auto-sim-input');
+	  		// $('#table-section tbody').empty();
 		}
 	}
+	/* ===== State Changes ====== */
 	$('#sim-btn').click(function() {
   		$('#what-to-do').addClass('d-none');
   		$('#manner-of-input').removeClass('d-none');
@@ -47,16 +48,26 @@ $(document).ready(function() {
 	});
 	$('button#submit-sim-values').click(function(e) {
 		e.preventDefault();
+	  	$('#table-section tbody').empty();
 		let auto_sim_data = $('#sim-parameters').serializeArray();
 		let get_value = (index) => {return  auto_sim_data[i].value};
-		console.log(auto_sim_data);
   		$('section#auto-simulation').addClass('d-none');
 		$('#table-section').removeClass('d-none');
   		$('main').data('state','auto-sim-table');
-  		console.log(investment_simulation_data(auto_sim_data));
-    	for (let i of investment_simulation_data(auto_sim_data)) {
-    		$('#table-section tbody').append(table_row(i));
-    	}
+  		/* ===== Checking for any error codes =====*/
+  		let sim_data = investment_simulation_data(auto_sim_data);
+  		if (sim_data.error_code === 0) {
+  			for (let i of sim_data.data) {
+	    		$('#table-section tbody').append(table_row(i));
+	    	}
+  		}else {
+  			if (sim_data.error_code === 1) {
+	  			alert(sim_data.data);
+	  		}
+  		}
+    	
+  		/* ===== Check finished =====*/
+
 	})
 	$('.back-btn').click(function() {
   		goBack();
@@ -73,6 +84,7 @@ $(document).ready(function() {
 				<td>&#8358;${data_object.compounded_investment}</td>
 				<td>&#8358;${data_object.compounded_yield}</td>
 				<td>&#8358;${data_object.compounded_profit}</td>
+				<td class="week">${data_object.compounded_time}</td>
 			 </tr>
 			`;
 		return table_row;
