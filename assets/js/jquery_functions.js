@@ -1,12 +1,13 @@
 $(document).ready(function() {
 	/* ===== Declarations =====*/
-	let sim_th = (n) => {
-		return $(`#sim-table-head th:nth-child(${n})`);
+	let label_1 = "Index No", label_2 = "Investment", label_3 = "Yield", label_4 = "Profit",
+		label_5 = "C./Investment", label_6 = "C./Yield", label_7 = "C./Profit"; 
+	let card_label = (label) => {
+		return `<span class="col-6 pl-0 card-label">${label}</span>->`;
 	}
-	sim_th(1).text("S/N");sim_th(2).text("Investment");
-	sim_th(3).text("Yield");sim_th(4).text("Profit");
-	sim_th(5).text("C./Investment");sim_th(6).text("C./Yield");
-	sim_th(7).text("C./Profit");
+	let card_data = (data) => {
+		return `<span class="col-6 text-right card-data">${data}</span>`;
+	}
 	/* ===== Simulator section ====== */
 	function goBack() {
 		if ($('main').data('state')==='manner-of-input') {
@@ -56,9 +57,6 @@ $(document).ready(function() {
   		console.log(investment_simulation_data(auto_sim_data));
     	for (let i of investment_simulation_data(auto_sim_data)) {
     		$('#investment-stack').append(investment_card(i));
-			
-    		// $('.owl-carousel').trigger('refresh.owl.carousel');
-
     	}
     	$('.owl-carousel').owlCarousel({
 		        loop:true,
@@ -71,18 +69,25 @@ $(document).ready(function() {
 		        responsiveClass:true,
 		        responsive:{
 		            0:{
-		                margin: 0,
+		               	margin: 15,
 		                items:1
 		            },
-		            600:{
+		            576:{
+		            	margin: 30,
+		                items:2
+		            },
+	             	840:{
+		            	margin: 30,
 		                items:3
 		            },
-		            1000:{
+		            
+		            1200:{
 		                margin: 30,
 		                items:4
 		            }
 		        }
-		    });
+	    });
+		$('#investment-stack .owl-stage-outer').addClass('py-5')
 	})
 	$('.back-btn').click(function() {
   		goBack();
@@ -90,14 +95,14 @@ $(document).ready(function() {
 	let investment_card =  (data_object) => {
 		// if (data_object[i]).includes()
 		let investment_card = 
-			`<div class="bg-white p-4 rounded card-box">
-				<p>${sim_th(1).text()}: ${data_object.index}</p>
-				<p>Investment: &#8358;${data_object.investment}</p>
-				<p>Y&#8358;${data_object.yield}</p>
-				<p>&#8358;${data_object.profit}</p>
-				<p>&#8358;${data_object.compounded_investment}</p>
-				<p>&#8358;${data_object.compounded_yield}</p>
-				<p>&#8358;${data_object.compounded_profit}</p>
+			`<div class="card rounded shadow-2">
+				<p class="flex rounded-top">${card_data(data_object.index)}</p>
+				<p class="flex px-4">${card_label(label_2)} ${card_data(data_object.investment)}</p>
+				<p class="flex px-4">${card_label(label_3)} ${card_data(data_object.yield)}</p>
+				<p class="flex px-4">${card_label(label_4)} ${card_data(data_object.profit)}</p>
+				<p class="flex px-4">${card_label(label_5)} ${card_data(data_object.compounded_investment)}</p>
+				<p class="flex px-4">${card_label(label_6)} ${card_data(data_object.compounded_yield)}</p>
+				<p class="flex px-4">${card_label(label_7)} ${card_data(data_object.compounded_profit)}</p>
 			</div>
 			`;
 		return investment_card;
