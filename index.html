@@ -7,8 +7,10 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <link rel="icon" type="image/jpg" href="./assets/imgs/logo1.jpg"/>
 	    <link rel="stylesheet" href="./assets/stylesheets/libraries/bootstrap/bootstrap.css">
-	    <link rel="stylesheet" href="./assets/stylesheets/libraries/normalize.css">
+	    <link rel="stylesheet" href="./assets/stylesheets/libraries/owl.carousel.min.css">
+	    <link rel="stylesheet" href="./assets/stylesheets/libraries/owl.theme.default.min.css">
 	    <link rel="stylesheet" href="./assets/stylesheets/reset.css">
+	    <link rel="stylesheet" href="./assets/stylesheets/libraries/normalize.css">
 	    <link rel="stylesheet" href="./assets/stylesheets/extra-responsive.css">
 	    <link rel="stylesheet" href="./assets/stylesheets/style.css"> 
 	</head>
@@ -124,54 +126,45 @@
 		        			</div>
 		        		</div>
 		        	</section>
-		        	<section id="table-section" class="d-none">
+		        	<section id="table-section" class="d-none ">
 		        		<div class="container-fluid ">
 		        			<div class="row">
-		        				<div class="col-11 col-md-9 mx-auto">
-		        					<table id="sim-table" class="text-center table table-hover table-striped ">
-		        						<div class="d-inline-flex">
-		        							<div class="relative back-btn mr-4">
-			        							<button class="btn btn-danger  ">Back</button>
-			        						</div>
-			        						<div class="add-btn d-none">
-			        							<button type="button" class="btn btn-light" data-toggle="modal" data-target="#add-amount" data-backdrop="static" data-keyboard="false">
-													<img src="./assets/imgs/plus-2.svg" class="pb-1 svgs plus-svg">
-		        									<span> Add Investment</span>
-												</button>
-			        						</div>
+		        				<div class="col-12 col-lg-11 mx-auto">
+	        						<div class="d-inline-flex">
+	        							<div class="relative back-btn mr-4">
+		        							<button class="btn btn-danger  ">Back</button>
 		        						</div>
-		        						<caption class="text-md-center">Investment Simulator</caption>
-					        			<thead id="sim-table-head" class="">
-					        				<tr>
-					        					<th scope="col" class="col-auto"><?=$col_head_1?></th>
-					        					<th scope="col" class="col-2"><?=$col_head_2?></th>
-					        					<th scope="col" class="col-2"><?=$col_head_3?></th>
-					        					<th scope="col" class="col-2"><?=$col_head_4?></th>
-					        					<th scope="col" class="col-2"><?=$col_head_5?></th>
-					        					<th scope="col" class="col-2"><?=$col_head_6?></th>
-					        					<th scope="col" class="col-2"><?=$col_head_7?></th>
-					        				</tr>
-					        			</thead>
-					        			<tbody class="bg-white">
-					        				
-					        			</tbody>
-					        		</table>
+		        						<div class="add-btn d-none">
+		        							<button type="button" class="btn btn-light" data-toggle="modal" data-target="#add-amount" data-backdrop="static" data-keyboard="false">
+												<img src="./assets/imgs/plus-2.svg" class="pb-1 svgs plus-svg">
+	        									<span> Add Investment</span>
+											</button>
+		        						</div>
+	        						</div>
+		        				
+					        		<div id="investment-stack" class="owl-theme owl-carousel">
+					        			
+					        		
+					        		</div>
 		        				</div>
 		        				
 		        			</div>
 		        			
 		        		</div>
 		        	</section>
+
 	        	</div>
 	       
 	        </main>
 	    </div>
 	    <!-- Js -->
 	 	<script src="./assets/js/libraries/jquery.min.js"></script>
+	 	<script src="./assets/js/libraries/jquery.easing.1.3.js"></script>
+	    <script src="./assets/js/jquery_functions.js"></script>
+	    <script src="./assets/js/libraries/owl.carousel.min.js"></script>
 	    <script src="./assets/js/libraries/bootstrap.js"></script>
 	    <!-- <script src="./assets/js/all.min.js"></script> -->
 	    <script src="./assets/js/algorithms.js"></script>
-	    <script src="./assets/js/jquery_functions.js"></script>
 	    <script src="./assets/js/main.js"></script>
 	</body>
 </html>
