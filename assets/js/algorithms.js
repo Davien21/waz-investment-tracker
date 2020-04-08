@@ -30,21 +30,17 @@ let get_time = (capital,base_investment,increment,number) => {
 			}else {
 				multi_investment = 0;
 			}
-			
 			// while (multi_investment <= capital) {
 			// }
 		}
 		capital+=profit;
-
 	}
 	console.log(capital)
 	// console.log(compounded_investment);
-	
 }
-get_time(100000,10000,10000,20)
+// get_time(100000,10000,10000,20)
 let investment_simulation_data = (input_array) => {
 	let data_array = [];
-
 	let base_investment = Number(input_array[0].value),number = Number(input_array[1].value),
 		increment = Number(input_array[2].value),start_capital = Number(input_array[3].value);
 	if (start_capital < base_investment) {
@@ -71,5 +67,4 @@ let investment_simulation_data = (input_array) => {
 		}
 		return {data:data_array,error_code:0};
 	}
-	
 }

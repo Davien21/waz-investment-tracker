@@ -1,12 +1,13 @@
 $(document).ready(function() {
 	/* ===== Declarations =====*/
-	let sim_th = (n) => {
-		return $(`#sim-table-head th:nth-child(${n})`);
+	let label_1 = "Index No", label_2 = "Investment", label_3 = "Yield", label_4 = "Profit",
+		label_5 = "C./Investment", label_6 = "C./Yield", label_7 = "C./Profit"; 
+	let card_label = (label) => {
+		return `<span class="col-6 pl-0 card-label">${label}</span>->`;
 	}
-	sim_th(1).text("S/N");sim_th(2).text("Investment");
-	sim_th(3).text("Yield");sim_th(4).text("Profit");
-	sim_th(5).text("C./Investment");sim_th(6).text("C./Yield");
-	sim_th(7).text("C./Profit");sim_th(8).text("Week");
+	let card_data = (data) => {
+		return `<span class="col-6 text-right card-data">${data}</span>`;
+	}
 	/* ===== Simulator section ====== */
 	function goBack() {
 		if ($('main').data('state')==='manner-of-input') {
@@ -28,6 +29,37 @@ $(document).ready(function() {
   			$('main').data('state','auto-sim-input');
 	  		// $('#table-section tbody').empty();
 		}
+	}
+	let make_cards_slider = () => {
+		$('.owl-carousel').owlCarousel({
+	        loop:true,
+	        margin: 30,
+	        mouseDrag:true,
+	        // autoplay:true,
+	        dots: false,
+            navigation : false,
+			navigationText : ["prev","next"],
+	        responsiveClass:true,
+	        responsive:{
+	            0:{
+	               	margin: 15,
+	                items:1
+	            },
+	            576:{
+	            	margin: 30,
+	                items:2
+	            },
+             	840:{
+	            	margin: 30,
+	                items:3
+	            },
+	            
+	            1200:{
+	                margin: 30,
+	                items:4
+	            }
+	        }
+	    });
 	}
 	/* ===== State Changes ====== */
 	$('#sim-btn').click(function() {
@@ -54,12 +86,16 @@ $(document).ready(function() {
   		$('section#auto-simulation').addClass('d-none');
 		$('#table-section').removeClass('d-none');
   		$('main').data('state','auto-sim-table');
+
   		/* ===== Checking for any error codes =====*/
   		let sim_data = investment_simulation_data(auto_sim_data);
   		if (sim_data.error_code === 0) {
-  			for (let i of sim_data.data) {
-	    		$('#table-section tbody').append(table_row(i));
+	    	for (let i of investment_simulation_data(auto_sim_data).data) {
+	    		console.log(i)
+	    		$('#investment-stack').append(investment_card(i));
 	    	}
+	    	make_cards_slider();
+			$('#investment-stack .owl-stage-outer').addClass('py-5')
   		}else {
   			if (sim_data.error_code === 1) {
 	  			alert(sim_data.data);
@@ -67,29 +103,28 @@ $(document).ready(function() {
   		}
     	
   		/* ===== Check finished =====*/
-
 	})
 	$('.back-btn').click(function() {
   		goBack();
 	});
-	let table_row =  (data_object) => {
-		// if (data_object[i]).includes()
-		let table_row = 
-			`
-			 <tr>
-				<td>${data_object.index}</td>
-				<td>&#8358;${data_object.investment}</td>
-				<td>&#8358;${data_object.yield}</td>
-				<td>&#8358;${data_object.profit}</td>
-				<td>&#8358;${data_object.compounded_investment}</td>
-				<td>&#8358;${data_object.compounded_yield}</td>
-				<td>&#8358;${data_object.compounded_profit}</td>
-				<td class="week">${data_object.compounded_time}</td>
-			 </tr>
+
+	let investment_card = (data_object)  => {
+		let investment_card =`<div class="card rounded shadow-2">
+				<p class="flex rounded-top">${card_data(data_object.index)}</p>
+				<p class="flex px-4">${card_label(label_2)} ${card_data(data_object.investment)}</p>
+				<p class="flex px-4">${card_label(label_3)} ${card_data(data_object.yield)}</p>
+				<p class="flex px-4">${card_label(label_4)} ${card_data(data_object.profit)}</p>
+				<p class="flex px-4">${card_label(label_5)} ${card_data(data_object.compounded_investment)}</p>
+				<p class="flex px-4">${card_label(label_6)} ${card_data(data_object.compounded_yield)}</p>
+				<p class="flex px-4">${card_label(label_7)} ${card_data(data_object.compounded_profit)}</p>
+			 </div>
 			`;
-		return table_row;
+		return investment_card;
 	}
 	/* ===== Tracking section ====== */
 	$('#track-btn').click(function() {
 	})
+	/* ====== Set Owl Slider for investments ====== */
+
+
 }); 
