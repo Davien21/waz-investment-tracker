@@ -42,7 +42,7 @@ $(document).ready(function() {
 	        responsiveClass:true,
 	        responsive:{
 	            0:{
-	               	margin: 15,
+	               	margin: 5,
 	                items:1
 	            },
 	            576:{
@@ -53,7 +53,6 @@ $(document).ready(function() {
 	            	margin: 30,
 	                items:3
 	            },
-	            
 	            1200:{
 	                margin: 30,
 	                items:4
@@ -86,12 +85,10 @@ $(document).ready(function() {
   		$('section#auto-simulation').addClass('d-none');
 		$('#table-section').removeClass('d-none');
   		$('main').data('state','auto-sim-table');
-
   		/* ===== Checking for any error codes =====*/
   		let sim_data = investment_simulation_data(auto_sim_data);
   		if (sim_data.error_code === 0) {
 	    	for (let i of investment_simulation_data(auto_sim_data).data) {
-	    		console.log(i)
 	    		$('#investment-stack').append(investment_card(i));
 	    	}
 	    	make_cards_slider();
@@ -101,13 +98,12 @@ $(document).ready(function() {
 	  			alert(sim_data.data);
 	  		}
   		}
-    	
   		/* ===== Check finished =====*/
 	})
 	$('.back-btn').click(function() {
   		goBack();
 	});
-
+	/* ====== Set Owl Slider for investments ====== */
 	let investment_card = (data_object)  => {
 		let investment_card =`<div class="card rounded shadow-2">
 				<p class="flex rounded-top">${card_data(data_object.index)}</p>
@@ -124,7 +120,4 @@ $(document).ready(function() {
 	/* ===== Tracking section ====== */
 	$('#track-btn').click(function() {
 	})
-	/* ====== Set Owl Slider for investments ====== */
-
-
 }); 
