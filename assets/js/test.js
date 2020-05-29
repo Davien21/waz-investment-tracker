@@ -1,64 +1,24 @@
 let number_format = (value) => {
 	return value.toLocaleString();
 } 
-// let investments = [20000,30000,40000,50000,60000,70000,80000];
-let cap = 200000,increment = 10000,number=10,base_investment = 10000;
-//This test is for incremental capital with no collect on profit or retaining balances.
-//find these: C/Profit,balance after using I./Capital and add them to make new capital
-let get_remainder = (capital_array) => {
-	return balance = capital_array[capital_array.length-1];
-}
-let get_new_capital = (b_investment,increment,b_capital,c_index) => {
-// 	let profit = current_yield - investment;
-		// let j = c_index-1;
-		return 'ddd'
-		// let next_invest;
-		// let capital_outflows = []
-		// while (capital >= 0) {
-		// 	next_invest = 
-		// 		base_investment + (increment*j);
-		// 	capital -= next_invest;
-		// 	if (capital>=0) {
-		// 		capital_outflows.push(capital)
-		// 	}else {
-		// 		console.log(get_remainder(capital_outflows))
-		// 	}
-
-		// 	// console.log(`Capital: ${capital} | Investment: ${next_invest}`);
-		// 	console.log(capital_outflows)
-		// 	++j;
-		// }
-}
-function testDuration (initial_cap,base_invest,increment,number,get_new_capital) {
-	let multi_investment = 0;
-	let capital = initial_cap;
-	for (let i = 0;i<number;++i) {
-		let investment = base_investment + (increment*i);
-		if (i === 0) {
-			current_yield = 0;
-		}else {
-			current_yield = (investment - increment) * 1.5;
-		}
-		let profit = current_yield - investment;
-		let j = i-1;
-		let next_invest;
-		
-		let a =base_invest,b=increment,c=capital,d=j;
-		console.log(get_new_capital(a,b,c,d));
-		// console.log(profit)
-		// multi_investment -= next_invest;
-		// console.log(multi_investment);
-		// let new_capital = capital+=profit;
-		// console.log(capital)
-		// console.log(`Investment: ${investment} | Yield: ${current_yield} | Profit: ${profit} | Usable Capital: ${multi_investment}`);
-		// let usable_capital = multi_investment - prev_invest;
-		// let unused_balance = initial_capital - usable_capital;
-		// console.log(`Usable Capital: ${usable_capital}\nRemaining Balance: ${unused_balance}`)
-	}
-}
+let investments = [20000,30000,40000,50000,60000,70000,80000];
+let cap = 100000;
 //This test is for incremental capital with no collect on profit.
-	
-testDuration(cap,base_investment,increment,number)
+function testDuration (initial_capital,investment_array,current_index) {
+	let multi_investment = 0;
+	let i = current_index;
+	// for (let i = current_index+1;i<investment_array.length;++i) {
+		while(multi_investment<=initial_capital) {
+			multi_investment+=investment_array[i];
+			console.log(investment_array[i])
+			++i;
+		}
+		let usable_capital = multi_investment - investment_array[i-1];
+		let unused_balance = initial_capital - usable_capital;
+		console.log(`Usable Capital: ${usable_capital}\nRemaining Balance: ${unused_balance}`)
+	// }
+}
+testDuration(cap,investments,0)
 let get_time = (capital,base_investment,increment,number) => {
 	let compounded_investment = compounded_yield = compounded_profit = 0;
 	let time = 0;
@@ -126,5 +86,3 @@ let investment_simulation_data = (input_array) => {
 		return {data:data_array,error_code:0};
 	}
 }
-/* == Thoughts == */
-/*1. include simulation starting index option*/
